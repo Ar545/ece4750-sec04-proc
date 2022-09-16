@@ -18,9 +18,35 @@ def test_addi( cmdline_opts ):
 
   prog="""
     # write your test case here!
-
-
+    csrr x1, mngr2proc < 5
+    csrr x2, mngr2proc < 4
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    addi x3, x1, 4
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    csrw proc2mngr, x3 > 9
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
   """
 
-  run_test( ProcFL, prog, cmdline_opts=cmdline_opts )
+  run_test( ProcSimple, prog, cmdline_opts=cmdline_opts )
 

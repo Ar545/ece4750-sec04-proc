@@ -14,6 +14,13 @@ from lab2_proc.ProcSimple import ProcSimple
 # test_add_sm
 #-------------------------------------------------------------------------
 
+# csrr = control status register read
+# csrw = control status register write
+# mngr2proc = manager to processor
+# csrr x1, mngr2proc < 5: put 5 in x1
+# csrw proc2mngr, x3 > 9: take 9 and stick it in the sink
+# nop between insns: see the insn move through full cycle before the next one comes in
+
 def test_add_sm( cmdline_opts ):
 
   prog="""
@@ -47,5 +54,5 @@ def test_add_sm( cmdline_opts ):
     nop
   """
 
-  run_test( ProcFL, prog, cmdline_opts=cmdline_opts )
+  run_test( ProcSimple, prog, cmdline_opts=cmdline_opts )
 
